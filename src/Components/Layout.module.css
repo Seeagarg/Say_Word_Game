@@ -1,0 +1,27 @@
+
+.container{
+    /* width: 100%; */
+    margin: 0;
+    padding: 0;
+   
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    /* min-height: 100dvh;
+    max-height: 100dvh; */
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
+    /* background: linear-gradient(90deg,#A659FE 0%,#6F53FD); */
+    background: radial-gradient(#A659FE,#6F53FD);
+  }
+  
+  .sub_container{
+    width: 100%;
+    min-height: 100dvh;
+    /* max-height: 100dvh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }

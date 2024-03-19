@@ -1,0 +1,54 @@
+.container{
+    width: 20rem;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 1rem 2rem;
+    position: fixed;
+    bottom: 2px;
+}
+.item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon{
+    background-color: #6f53fd79;
+    color: white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.active{
+    background-color: #6f53fd;
+}
+
+.inActive:hover{
+    background-color: #6f53fdc2;
+}
+
+
+/* @media only screen and (max-width:1080px){
+    .container{
+      width: 50%;
+    }
+   
+  }
+
+
+  @media only screen and (max-width:620px){
+    .container{
+      width: 80%;
+    }
+   
+  } */
+

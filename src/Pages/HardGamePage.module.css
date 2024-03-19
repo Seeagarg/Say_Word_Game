@@ -1,0 +1,206 @@
+.top_container{
+    width: 19rem;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    margin-bottom: 10px;
+}
+
+.container{
+    width: 19rem;
+    background: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    padding-bottom: 0;
+}
+
+p{
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.tiles_grid{
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.25rem;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+
+.tile{
+    height: 3rem;
+    width: 3rem;
+    border-radius: 10px;
+    background-color: #e2f3ff;
+    border: 1px solid #339af0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: transform 10ms linear;
+}
+
+.change_color{
+    background-color: #339af0;
+}
+
+.flip_tile{
+    animation: flipAnimation 0.5s linear forwards ;
+}
+
+
+@keyframes flipAnimation {
+    0% {
+      transform: rotateX(0deg);
+    }
+    100% {
+      transform: rotateX(360deg);
+    }
+  }
+
+
+.keyboard_container{
+    /* position: relative; */
+	/* bottom: 8vh; */
+	display: flex;
+    flex-direction: column;
+	/* gap: 0.25em; */
+	justify-content: center;
+	width: 90vw;
+    margin-top: 10px;
+    /* position: fixed; */
+    /* bottom: 2rem; */
+  }
+
+.keypad_1{
+    display: flex;
+    /* width:100; */
+    justify-content: center;
+    grid-template-columns: 4rem 4rem 4rem 4rem 4rem 4rem 4rem 4rem 4rem 4rem;
+    gap: 0.3rem;
+}
+.key{
+    /* padding: 1rem; */
+    width: 4rem;
+    height: 3rem;
+    /* margin-left: 1px; */
+    font-weight: bold;
+    /* width:3rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), #52525B;
+    font-size: 1.5rem;
+    color: white;
+    border-radius: 0.35rem;
+    cursor: pointer;
+    z-index: 0;
+    transition: background 0.3s ease;
+}
+
+.key:hover,
+.key:focus,.key_large:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), #52525B;
+	/* filter: brightness(0.4); */
+    
+}
+
+
+.key_large{
+    padding: 1rem;
+    width: 8rem;
+    height: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #52525B;
+    font-size: 2rem;
+    color: white;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+.keypad_2{
+    display: flex;
+    width:100;
+    justify-content: center;
+    margin-top: 0.2rem;
+    gap: 0.2rem;
+}
+.keypad_3{
+    display: flex;
+    width:100;
+    justify-content: center;
+    margin-top: 0.2rem;
+    /* display: grid;
+    grid-template-columns: 8rem 4rem 4rem 4rem 4rem 4rem 4rem 4rem 8rem; */
+    gap: 0.2rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+    
+    .key{
+        /* padding: 1rem; */
+        /* width: 3rem; */
+        height: 2.5rem;
+        /* margin-left: 1px; */
+        font-weight: bold;
+        /* width:3rem; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), #52525B;
+        font-size: 1rem;
+        color: white;
+        border-radius: 0.35rem;
+        cursor: pointer;
+        z-index: 0;
+        transition: background 0.3s ease;
+    }
+
+.key:hover,
+.key:focus,.key_large:hover {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), #52525B;
+	/* filter: brightness(0.4); */
+    
+}
+
+
+.key_large{
+    /* padding: 1rem; */
+    width: 3rem;
+     height: 0.5rem; 
+    font-size: 1rem;
+   
+}
+.keypad_2{
+    display: flex;
+    width:100;
+    justify-content: center;
+    margin-top: 0.2rem;
+    /* gap: 0.2rem; */
+}
+.keypad_3{
+    display: flex;
+    width:100;
+    justify-content: center;
+    margin-top: 0.2rem;
+    /* display: grid;
+    grid-template-columns: 8rem 4rem 4rem 4rem 4rem 4rem 4rem 4rem 8rem; */
+    /* gap: 0.2rem; */
+}
+  }
