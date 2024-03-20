@@ -40,7 +40,8 @@ p{
     height: 3rem;
     width: 3rem;
     border-radius: 10px;
-    background-color: #52525b71;
+    background-color: #e2f3ff;
+    border: 1px solid #339af0;
     display: flex;
     justify-content: center;
     align-items: center;

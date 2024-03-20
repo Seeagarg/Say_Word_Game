@@ -8,6 +8,8 @@ import EasyGamePage from '../Pages/EasyGamePage'
 import MediumGamePage from '../Pages/MediumGamePage'
 import HardGamePage from '../Pages/HardGamePage'
 import CategoryGame from '../Pages/CategoryGame'
+import DescriptionPage from '../Pages/DescriptionPage'
+import Profile from '../Pages/Profile'
 
 const Routing = () => {
     
@@ -23,6 +25,14 @@ const Routing = () => {
         {
             path:'/levels',
             element:<Levels/>,
+        },
+        {
+            path:'/description',
+            element:<DescriptionPage/>,
+        },
+        {
+            path:'/profile',
+            element:<Profile/>,
         },
         {
             path:'/easy-mode',

@@ -136,7 +136,7 @@ useEffect(() => {
             dispatch(removeLetterFour());
             dispatch(removeLetterFive());
             dispatch(removeFiveLetterWord());
-            toast.error("Try Again")
+            toast.error("Try Again");
           }
       }
       

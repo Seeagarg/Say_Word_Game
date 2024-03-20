@@ -30,7 +30,7 @@ import {
 import CryptoJS from "crypto-js";
 import EnteredWordModal from "../Components/EnteredWordModal";
 import { checkWord, resetStateRightWord } from "../Slice/checkWordSlice";
-import modalSlice, { closeShowModal, openShowModal } from "../Slice/modalSlice";
+import modalSlice, { closeInstructionModal, closeShowModal, openInstructionModal, openShowModal } from "../Slice/modalSlice";
 import { FortTwoTone } from "@mui/icons-material";
 import targetWords from "../Database/TargetWords";
 import WrongWordModal from "../Components/WrongWordModal";
@@ -40,14 +40,15 @@ const HardGamePage = () => {
   const dispatch = useDispatch();
 
   const [progress, setProgress] = useState(100);
-  const [instructionModal, setInstructionModal] = useState(false);
+  // const [instructionModal, setInstructionModal] = useState(true);
   const [showWrongWordModal,setShowWrongWordModal] = useState(false);
+  
   const { hardWordArray, hardIndex, hardFiveLetterWords, correctWord } =
     useSelector((state) => state.hardTileSlice);
   const { fiveLetterTargetWord, WordForGuess } = useSelector(
     (state) => state.targetWordSlice
   );
-  const { showModal } = useSelector((state) => state.modalSlice);
+  const { showModal,instructionModal } = useSelector((state) => state.modalSlice);
  
 
   const decryptData = () => {
@@ -73,7 +74,7 @@ const HardGamePage = () => {
   }, [fiveLetterTargetWord]);
 
   useEffect(() => {
-      
+    if(!instructionModal){
     const endTime = Date.now() + 30000; // Get the end time (30 seconds from now)
   
     const intervalId = setInterval(() => {
@@ -96,9 +97,13 @@ const HardGamePage = () => {
         dispatch(openShowModal());
       }
     }, 1000); // Update progress every second
+    return () => clearInterval(intervalId) // Cleanup function
+  }
   
-    return () => clearInterval(intervalId); // Cleanup function
-  }, []);
+   
+  },[instructionModal]);
+
+ 
   
 
   const pressKey = (char) => {
@@ -198,16 +203,12 @@ const HardGamePage = () => {
           dispatch(openShowModal());
         }
       } 
-      
-      
       else if (hardIndex == 11) {
         if(targetWords.includes( (hardWordArray[5] +
           hardWordArray[6] +
           hardWordArray[7] +
           hardWordArray[8] +
-          hardWordArray[9]).toLowerCase())){
-
-         
+          hardWordArray[9]).toLowerCase())){         
         dispatch(
           addWordTwo(
             hardWordArray[5] +
@@ -228,6 +229,9 @@ const HardGamePage = () => {
             word2: correctWord,
           })
         );
+          }
+          else{
+            setShowWrongWordModal(true);
           }
         if (
           hardWordArray[5] +
@@ -269,6 +273,9 @@ const HardGamePage = () => {
           })
         );
         }
+        else{
+          setShowWrongWordModal(true);
+        }
         if (
           hardWordArray[10] +
             hardWordArray[11] +
@@ -306,6 +313,9 @@ const HardGamePage = () => {
             word2: correctWord,
           })
         );
+          }
+           else{
+            setShowWrongWordModal(true);
           }
         if (
           hardWordArray[15] +
@@ -347,6 +357,9 @@ const HardGamePage = () => {
           })
         );
           }
+          else{
+            setShowWrongWordModal(true);
+          }
         if (
           hardWordArray[20] +
             hardWordArray[21] +
@@ -385,6 +398,9 @@ const HardGamePage = () => {
           })
         );
           }
+          else{
+            setShowWrongWordModal(true);
+          }
         if (
           hardWordArray[25] +
             hardWordArray[26] +
@@ -394,6 +410,9 @@ const HardGamePage = () => {
           correctWord
         ) {
           dispatch(openShowModal());
+        }
+        else{
+          dispatch(openShowModal())
         }
       }
     }
@@ -415,16 +434,18 @@ const HardGamePage = () => {
   }, [handleKeyDown]);
 
   const handleCloseInstructionModal = () => {
-    setInstructionModal(false);
+    dispatch(closeInstructionModal())
   };
 
   const handleCloseResultModal = () => {
+   
     dispatch(resetHardIndex());
     dispatch(resetHardWordArray());
     dispatch(resetHardWords());
     dispatch(ResetTargetWord());
     dispatch(setFiveLetterTargetWord());
     dispatch(resetStateRightWord());
+    dispatch(openInstructionModal())
     dispatch(closeShowModal());
   };
 

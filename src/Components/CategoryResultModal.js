@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import CryptoJS from "crypto-js";
 import { Link, useNavigate } from 'react-router-dom';
-import categorySlice, { increaseLevel } from '../Slice/CategoryTileSlice/categorySlice';
+import categorySlice, { increaseLevel, resetGuessedWord } from '../Slice/CategoryTileSlice/categorySlice';
+
 
 const style = {
   position: 'absolute',
@@ -44,6 +45,7 @@ const dispatch = useDispatch();
 const navigate = useNavigate()
 
 const handleNextLevelClick=()=>{
+  dispatch(resetGuessedWord())
     dispatch(increaseLevel())
   close();
 }

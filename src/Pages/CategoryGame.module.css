@@ -30,7 +30,7 @@ p{
 
 .tiles_grid{
     /* width: 100%; */
-    padding: 1.5rem;
+    padding: 1rem;
     display: flex;
     gap: 0.25rem;
     flex-wrap: wrap;
@@ -40,7 +40,8 @@ p{
     height: 3rem;
     width: 3rem;
     border-radius: 10px;
-    background-color: #52525b71;
+    background-color: #e2f3ff;
+    border: 1px solid #339af0;
     display: flex;
     justify-content: center;
     align-items: center;

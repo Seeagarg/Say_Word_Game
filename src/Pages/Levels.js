@@ -12,7 +12,7 @@ import { removeLetterFive, removeLetterFour, removeLetterOne, removeLetterThree,
 import { resetMediumIndex } from '../Slice/MediumTileSlice/indexMediumTileSlice'
 import { ResetCategoryTarget, resetLevel, resetShuffledWord, setCategoryTarget } from '../Slice/CategoryTileSlice/categorySlice'
 import { resetHardIndex, resetHardWordArray, resetHardWords } from '../Slice/HardTileSlice/hardTileSlice'
-import { closeCategoryModal, closeShowModal } from '../Slice/modalSlice'
+import { closeCategoryModal, closeShowModal, openInstructionModal } from '../Slice/modalSlice'
 
 const Levels = () => {
     const navigate = useNavigate();
@@ -52,6 +52,7 @@ const Levels = () => {
       dispatch(ResetTargetWord());
       dispatch(setFiveLetterTargetWord());
       dispatch(closeShowModal());
+      dispatch(openInstructionModal());
       navigate('/hard-mode')
 
     }
@@ -71,6 +72,7 @@ const Levels = () => {
       dispatch(resetLevel())
       dispatch(ResetCategoryTarget())
       dispatch(resetShuffledWord());
+      dispatch(closeCategoryModal())
       navigate('/category/sport')
       
     }
@@ -81,6 +83,7 @@ const Levels = () => {
       dispatch(resetLevel());
       dispatch(ResetCategoryTarget())
       dispatch(resetShuffledWord());
+      dispatch(closeCategoryModal())
       navigate('/category/humanbody')
       
     }
@@ -91,6 +94,7 @@ const Levels = () => {
       dispatch(resetLevel());
       dispatch(ResetCategoryTarget())
       dispatch(resetShuffledWord());
+      dispatch(closeCategoryModal())
       navigate('/category/food')
       
     }

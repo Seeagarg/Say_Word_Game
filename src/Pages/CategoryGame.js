@@ -14,6 +14,8 @@ import { ShuffleWord } from '../Slice/CategoryTileSlice/categorySlice';
 import CategoryResultModal from '../Components/CategoryResultModal';
 import { openCategoryModal,closeCategoryModal } from '../Slice/modalSlice';
 import modalSlice from '../Slice/modalSlice';
+import Lottie from 'lottie-react';
+import Loading from '../Animations/Loading.json'
 
 
 const secretKey = 'I am a Secret Key';
@@ -110,8 +112,9 @@ const CategoryGame = () => {
       const handleClose=()=>{
         // dispatch(increaseLevel());
         dispatch(resetGuessedWord());
-        dispatch(resetShuffledWord());
+        dispatch(setEnteredWord())
         dispatch(ResetCategoryTarget());
+        dispatch(resetShuffledWord());
         
         window.location.reload();
         dispatch(closeCategoryModal());
@@ -133,7 +136,10 @@ const CategoryGame = () => {
        <br />
        <p>Level : {level}</p>
        <br />
-       <p style={{letterSpacing:"1rem"}}>{shuffledWord}</p>
+      {
+        shuffledWord?
+        <>
+        <p style={{letterSpacing:"1rem"}}>{shuffledWord}</p>
        <div className={classes.tiles_grid}>
        {EnteredWord.map((item)=>(
             <div className={`${classes.tile}`}>{item}</div>
@@ -141,6 +147,13 @@ const CategoryGame = () => {
           {/* <div className={`${classes.tile}`}></div>
           <div className={`${classes.tile}`}></div> */}
         </div>
+        </>
+        :<Lottie
+        animationData={Loading}
+        height={100}
+        width={100}
+        />
+      }
        </div>
        <div className={classes.keyboard_container}>
           <div className={classes.keypad_1}>
